@@ -10,7 +10,7 @@ const data = require("./properties.json")
 
 dotenv.config();
 
-const uri = process.env.MONGO_URL;
+const uri = "mongodb://mongo-db/properties_db";
 
 // Connect to MongoDB using Mongoose
 mongoose.connect(uri);

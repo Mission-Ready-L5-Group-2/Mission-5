@@ -34,7 +34,7 @@ function Home() {
           <p>{property.address.street}</p>
           <p>{property.address.city}</p>
           <p>{property.price}</p>
-          <p>{property.location}</p>
+          <p>{property.address.district}</p>
           <hr></hr>
         </div>
       )
