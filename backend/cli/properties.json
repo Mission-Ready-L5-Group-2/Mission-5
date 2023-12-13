@@ -1,0 +1,45 @@
+[
+    {
+      "address": {
+        "street": "123 Main Street",
+        "suburb": "Sample Suburb",
+        "district": "Sample District",
+        "city": "Sample City"
+      },
+      "image": ["image1.jpg", "image2.jpg", "image3.jpg"],
+      "price": 150000,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "details": {
+        "availableDate": "2012-02-23",
+        "parking": 2,
+        "petsAllowed": true,
+        "furnished": false,
+        "broadband": true,
+        "description": "A beautiful property with great amenities."
+      },
+      "proximity": ["School", "Park", "Shopping Center"]
+    },
+    {
+      "address": {
+        "street": "456 Oak Avenue",
+        "suburb": "Another Suburb",
+        "district": "Another District",
+        "city": "Another City"
+      },
+      "image": ["image4.jpg", "image5.jpg", "image6.jpg"],
+      "price": 220000,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "details": {
+        "availableDate": "2012-02-23",
+        "parking": 3,
+        "petsAllowed": false,
+        "furnished": true,
+        "broadband": true,
+        "description": "Spacious and fully furnished property with a beautiful garden."
+      },
+      "proximity": ["Hospital", "Public Transit", "Gym"]
+    }
+  ]
+  
