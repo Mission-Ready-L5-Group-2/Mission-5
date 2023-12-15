@@ -28,5 +28,5 @@
     "tailwindcss": "^3.3.6",
     "vite": "^5.0.0"
   },
-  "proxy": "http://node-api:5000"
+  "proxy": "http://node-api:8080"
 }

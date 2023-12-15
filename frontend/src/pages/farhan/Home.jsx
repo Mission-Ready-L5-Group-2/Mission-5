@@ -7,7 +7,7 @@ function Home() {
 
   async function getAllProperties () {
     try {
-      const data = await axios.get('http://localhost:5000/test');
+      const data = await axios.get('http://localhost:8080/test');
       setProperties(data.data);
       
     } catch (error) {
@@ -31,6 +31,7 @@ function Home() {
       return (
         <div key={property._id}>
           <hr></hr>
+          <p>Add some more </p>
           <p>{property.address.street}</p>
           <p>{property.address.city}</p>
           <p>{property.price}</p>

@@ -4,6 +4,7 @@ services:
   frontend:
     build: ./frontend
     container_name: react-ui
+    restart: always
     ports:
       - "5173:5173"
     stdin_open: true
@@ -29,6 +30,7 @@ services:
   database:
     image: mongo
     container_name: mongo-db
+    restart: always
     ports:
       - "27017:27017"
     # volumes:
