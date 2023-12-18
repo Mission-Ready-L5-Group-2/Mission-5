@@ -24,7 +24,7 @@ app.use("/test", testRoute);
 const PORT = process.env.PORT || 5000;
 //Create the server
 mongoose
-  .connect("mongodb://mongo-db/properties_db")
+  .connect("mongodb://localhost:27017/properties_db")
   .then(() => {
     console.log("MongoDB Connected");
     app.listen(PORT, () => {

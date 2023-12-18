@@ -10,7 +10,7 @@ const data = require("./properties.json")
 
 dotenv.config();
 
-const uri = "mongodb://mongo-db/properties_db";
+const uri = "mongodb://localhost:27017/properties_db";
 
 // Connect to MongoDB using Mongoose
 mongoose.connect(uri);
