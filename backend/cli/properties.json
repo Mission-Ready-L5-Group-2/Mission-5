@@ -1,45 +1,261 @@
 [
-    {
-      "address": {
-        "street": "123 Main Street",
-        "suburb": "Sample Suburb",
-        "district": "Sample District",
-        "city": "Sample City"
-      },
-      "image": ["image1.jpg", "image2.jpg", "image3.jpg"],
-      "price": 150000,
-      "bedrooms": 3,
-      "bathrooms": 2,
-      "details": {
-        "availableDate": "2012-02-23",
-        "parking": 2,
-        "petsAllowed": true,
-        "furnished": false,
-        "broadband": true,
-        "description": "A beautiful property with great amenities."
-      },
-      "proximity": ["School", "Park", "Shopping Center"]
+  {
+    "address": {
+      "street": "3/2 Rewa Road",
+      "suburb": "Three Kings",
+      "district": "Auckland District",
+      "city": "Auckland City"
     },
-    {
-      "address": {
-        "street": "456 Oak Avenue",
-        "suburb": "Another Suburb",
-        "district": "Another District",
-        "city": "Another City"
-      },
-      "image": ["image4.jpg", "image5.jpg", "image6.jpg"],
-      "price": 220000,
-      "bedrooms": 4,
-      "bathrooms": 3,
-      "details": {
-        "availableDate": "2012-02-23",
-        "parking": 3,
-        "petsAllowed": false,
-        "furnished": true,
-        "broadband": true,
-        "description": "Spacious and fully furnished property with a beautiful garden."
-      },
-      "proximity": ["Hospital", "Public Transit", "Gym"]
-    }
-  ]
+    "image": [
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2081064624.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2081064628.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2081064640.jpg"
+    ],
+    "price": 540,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "details": {
+      "availableDate": "2024-01-03",
+      "parking": 1,
+      "petsAllowed": true,
+      "furnished": false,
+      "broadband": false,
+      "description": "A beautiful property with great amenities."
+    },
+    "proximity": ["School", "Train", "Shopping Center"]
+  },
+  {
+    "address": {
+      "street": "12 Mount Eden Road",
+      "suburb": "Mount Eden",
+      "district": "Auckland District",
+      "city": "Auckland City"
+    },
+    "image": [
+      "https://trademe.tmcdn.co.nz/photoserver/plus/1810849476.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/1810849521.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/1810850101.jpg"
+    ],
+    "price": 500,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "details": {
+      "availableDate": "2024-03-17",
+      "parking": 1,
+      "petsAllowed": false,
+      "furnished": false,
+      "broadband": false,
+      "description": "Good sized lounge, dining, Parking available inside section. Close to the bus stop. Moving cost, 1 week rent in advance, 4 weeks rent as bond, total $2500."
+    },
+    "proximity": ["School", "Train", "Shopping Center", "Park"]
+  },
+  {
+    "address": {
+      "street": "43 Queen Street",
+      "suburb": "City Centre",
+      "district": "Auckland District",
+      "city": "Auckland City"
+    },
+    "image": [
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2063677878.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2088149034.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2088680630.jpg"
+    ],
+    "price": 320,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "details": {
+      "availableDate": "2023-12-25",
+      "parking": 0,
+      "petsAllowed": false,
+      "furnished": false,
+      "broadband": false,
+      "description": "Studio apartment, Central CBD - Queen Street. Comfortable studio apartment in central Queen Street, Auckland CBD. Fully self-contained with its own kitchen and laundry facilities. All white-ware is provided (Fridge/freezer, Full-size stove, microwave, washing machine/dryer)."
+    },
+    "proximity": ["Train", "Shopping Center", "Highway"]
+  },
+  {
+    "address": {
+      "street": "1603/17 Wakefield Street",
+      "suburb": "City Centre",
+      "district": "Auckland District",
+      "city": "Auckland City"
+    },
+    "image": [
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2081356943.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2081356937.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2081356956.jpg"
+    ],
+    "price": 540,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "details": {
+      "availableDate": "2023-12-25",
+      "parking": 0,
+      "petsAllowed": false,
+      "furnished": true,
+      "broadband": true,
+      "description": "This modern fully furnished one-bedroom apartment has become available in QUEENS RESIDENCE. Sought after new building close to everything that Auckland has to offer, these apartments don't last long on the market.\n\nWhat's included:\n- Fully furnished\n- All cookware, dinnerware, cutlery\n- All appliances including a tall fridge\n- Modern furniture, table chairs, couch, drawers, TV etc.\n- Washing machine with a separate dryer\n- Comfy Queen size bed with built-in wardrobe\n- Spacious storage locker for extra space needed\n- Onsite gym, sauna & swimming pool free of use\n\nDon't miss out, book a viewing now or send an email to our agent to arrange a suitable time."
+    },
+    "proximity": ["Library", "Hospital", "Park"]
+  },
+  {
+    "address": {
+      "street": "11 Gaynor Street",
+      "suburb": "Mount Roskill",
+      "district": "Auckland District",
+      "city": "Auckland City"
+    },
+    "image": [
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2084119459.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2084119441.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2084119520.jpg"
+    ],
+    "price": 550,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "details": {
+      "availableDate": "2024-02-10",
+      "parking": 3,
+      "petsAllowed": false,
+      "furnished": true,
+      "broadband": true,
+      "description": "This newly renovated, tidy 2 bedroom 1 bathroom home is perfect for a small family or working couple. The owners have put much care into this property with the renovation, a great deck opening up from the living room to soak up the sun, and plenty of lawns for the entire family to enjoy. There is a garage as a bonus and an off-street car park. There are plenty of great childcare centers, shopping centers, parks, and public transport services all a stroll away."
+    },
+    "proximity": ["School", "Park", "Pre-school"]
+  },
+  {
+    "address": {
+      "street": "118/20 Upper Queen Street",
+      "suburb": "City Centre",
+      "district": "Auckland District",
+      "city": "Auckland City"
+    },
+    "image": [
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2085633736.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2085633726.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2085633721.jpg"
+    ],
+    "price": 350,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "details": {
+      "availableDate": "2024-01-09",
+      "parking": 0,
+      "petsAllowed": false,
+      "furnished": true,
+      "broadband": true,
+      "description": "Climber Property is dedicated to finding your next home and caring for it with you.\n\nFEATURES:\n- Furnished STUDIO apartment\n- Studio equipped with a panel heater\n- Bathroom with shower, vanity, and toilet\n- Tidy kitchen with cupboard spaces\n- Water included in the rent\n- This handy studio located in Upper Queen Street, close to K Road, shops, and public transports, walking distance to CBD and universities.\n- TOTAL MOVE-IN COST: 4 Weeks Bond + 1st Weeks Rent."
+    },
+    "proximity": ["Shopping Center", "Park", "Train", "Highway"]
+  },
+  {
+    "address": {
+      "street": "20 Morningstar Place",
+      "suburb": "St Lukes",
+      "district": "Auckland District",
+      "city": "Auckland City"
+    },
+    "image": [
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2086038322.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2086038341.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2086038349.jpg"
+    ],
+    "price": 490,
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "details": {
+      "availableDate": "2024-03-11",
+      "parking": 1,
+      "petsAllowed": true,
+      "furnished": false,
+      "broadband": true,
+      "description": "Limited tenure - due to renovations throughout the complex. Spacious apartment with a large deck. Bathroom with an additional separate toilet. Across the road from Westfield Shopping mall, and the complex backs onto MAGS school grounds. Close to all public transport. Water included."
+    },
+    "proximity": ["Shopping Center", "Park", "School", "Highway"]
+  },
+  {
+    "address": {
+      "street": "20 Morningstar Place",
+      "suburb": "St Lukes",
+      "district": "Auckland District",
+      "city": "Auckland City"
+    },
+    "image": [
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2087469077.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2087469090.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2087469100.jpg"
+    ],
+    "price": 550,
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "details": {
+      "availableDate": "2023-12-23",
+      "parking": 2,
+      "petsAllowed": false,
+      "furnished": false,
+      "broadband": true,
+      "description": "Unit with 3 double bedrooms, 1 bathroom plus an extra toilet, kitchen/dining. Beds, tables, sofa can be included or not. Convenient location, close to bus stop, shops, St Luke's Mall. Mt Albert Grammar zone."
+    },
+    "proximity": ["Pre-school", "Park", "School"]
+  },
+  {
+    "address": {
+      "street": "7/62 Grange Road",
+      "suburb": "Mount Eden",
+      "district": "Auckland District",
+      "city": "Auckland City"
+    },
+    "image": [
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2087903074.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2087903064.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2087903063.jpg"
+    ],
+    "price": 550,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "details": {
+      "availableDate": "2023-12-23",
+      "parking": 1,
+      "petsAllowed": false,
+      "furnished": false,
+      "broadband": true,
+      "description": "Light and sunny 2 bedroom unit in the perfect central location, with easy access to public transport and motorways. 3 minutes' walk to Mt Eden village. End unit with a single car lock-up garage - suits a smaller car. Double grammar zone too! 1 double bedroom and 1 single. Suitable for up to 3 people. In zone for Auckland Grammar, Epsom Girls Grammar & Mt Albert Grammar, as well as Auckland Normal Intermediate, Balmoral School & Mt Eden Normal Primary. Long term contract preferred."
+    },
+    "proximity": ["Park", "School"]
+  },
+  {
+    "address": {
+      "street": "2/6 Princes Ave",
+      "suburb": "Mount Roskill",
+      "district": "Auckland District",
+      "city": "Auckland City"
+    },
+    "image": [
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2088167447.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2088167453.jpg",
+      "https://trademe.tmcdn.co.nz/photoserver/plus/2088167467.jpg"
+    ],
+    "price": 490,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "details": {
+      "availableDate": "2024-04-17",
+      "parking": 1,
+      "petsAllowed": false,
+      "furnished": true,
+      "broadband": true,
+      "description": "Recently refurbished 2 bedroom brick and tile unit in a block of 3. This spacious 2 bedroom unit has a combined kitchen and dining and a separate lounge with a heat pump. It has been repainted throughout and has a new bathroom and kitchen. There is off-street parking for one car. Lawns included in the rent. Great location, handy to local bus routes, schools, parks, and restaurants."
+    },
+    "proximity": ["Park", "School"]
+  }
   
+  
+  
+  
+  
+  
+  
+  
+ 
+]

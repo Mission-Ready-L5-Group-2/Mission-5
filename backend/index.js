@@ -21,7 +21,7 @@ app.use("/test", testRoute);
 
 //Create Port and Connect to MONGO
 //PORT
-const PORT = process.env.PORT || 5000;
+const PORT = 8080;
 //Create the server
 mongoose
   .connect("mongodb://localhost:27017/properties_db")

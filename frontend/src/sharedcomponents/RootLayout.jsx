@@ -3,9 +3,9 @@ import { Outlet } from "react-router-dom";
 function RootLayout() {
   return (
     <>
-      <nav>Create Navbar</nav>
+      <nav>Create Navbar, how does this work</nav>
       <Outlet />
-      <footer>Create Footer</footer>
+      <footer>Create Footer, no sir!</footer>
     </>
   );
 }
