@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 function RootLayout() {
   return (
     <>
-      <nav>Create Navbar, how does this work</nav>
+      <NavBar />
       <Outlet />
-      <footer>Create Footer, no sir!</footer>
+      <Footer />
     </>
   );
 }
