@@ -17,6 +17,7 @@ import Accordion from "./accordion/Accordion";
 
 
 import { useState } from "react";
+import Results from "./Results";
 
 
 
@@ -50,6 +51,14 @@ function Home() {
       description: "Call on us whenever you need support with any issues that arise during your tenancy."
 
     }
+  ]
+
+  const cardDesc  = [
+    "Begin your journey by exploring our wide range of rental properties. Use the search initiation feature to filter and discover homes that match your preferences",
+    "Dive into the search results and find properties that catch your eye. Our property listings provide all the details you need to make an informed decision",
+    "Save the properties you love. Review your saved listings at your own pace and select the ones you're most interested in.",
+    "Choose the properties you want to apply for and insert your details seamlessly.  We’ll match the most suitable tenant to the property for you. ",
+    "Reach out to us for a viewing or let us help assess your needs. Our dedicated team is here to guide you through the process and answer any questions you may have."
   ]
 
   // Settings for the slideshow carousel
@@ -127,12 +136,14 @@ function Home() {
 
     <div className="bg-[#cbd5e1] flex flex-col gap-4 p-3 mt-2"> 
     <p className="text-wrap font self-center font-bold pt-3">Steps to a Successful Tenancy</p>
-    <Accordion id={"a1"} number={1} title={"Start Exploring"} onClick={handleClick} isOpen={isOpen.a1}/>
-    <Accordion id={"a2"} number={2} title={"Discover Your Ideal Home"} onClick={handleClick} isOpen={isOpen.a2}/>
-    <Accordion id={"a3"} number={3} title={"Your Choices, Your Way"} onClick={handleClick} isOpen={isOpen.a3}/>
-    <Accordion id={"a4"} number={4} title={"We'll do the Homework"} onClick={handleClick} isOpen={isOpen.a4}/>
-    <Accordion id={"a5"} number={5} title={"Personalised Assistance"} onClick={handleClick} isOpen={isOpen.a5}/>
+    <Accordion id={"a1"} number={1} title={"Start Exploring"} onClick={handleClick} isOpen={isOpen.a1} cardDesc={cardDesc[0]}/>
+    <Accordion id={"a2"} number={2} title={"Discover Your Ideal Home"} onClick={handleClick} isOpen={isOpen.a2} cardDesc={cardDesc[1]}/>
+    <Accordion id={"a3"} number={3} title={"Your Choices, Your Way"} onClick={handleClick} isOpen={isOpen.a3} cardDesc={cardDesc[2]}/>
+    <Accordion id={"a4"} number={4} title={"We'll do the Homework"} onClick={handleClick} isOpen={isOpen.a4} cardDesc={cardDesc[3]}/>
+    <Accordion id={"a5"} number={5} title={"Personalised Assistance"} onClick={handleClick} isOpen={isOpen.a5} cardDesc={cardDesc[4]}/>
     </div>
+
+    <Results/>
 
 
 
