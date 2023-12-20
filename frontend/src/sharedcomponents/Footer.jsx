@@ -12,7 +12,7 @@ import location from "../assets/footer/location.svg";
 
 function Footer() {
   return (
-    <>
+    <div >
       <div
         className="h-[200px] bg-[#1e293b] w-full
     flex  justify-around text-white items-center"
@@ -48,7 +48,7 @@ function Footer() {
         <p>&copy; Metro NZ Property Management</p>
         <p>SEO Services Provided By KWD - An SEO Auckland NZ Company</p>
       </div>
-    </>
+    </div>
   );
 }
 
