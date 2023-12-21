@@ -5,5 +5,19 @@
 .slick-slide > div {
     display: flex;
     margin: 0 10px;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-self: center;
 }
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+

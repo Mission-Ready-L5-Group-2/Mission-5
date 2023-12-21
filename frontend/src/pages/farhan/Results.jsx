@@ -3,8 +3,8 @@ import React from "react";
 function Results() {
   return (
     <div className="flex flex-col items-center">
-      <p className="text-md">Our Results in Numbers</p>
-      <div className="flex flex-wrap gap-1 justify-evenly">
+      <p className="text-md md:text-2xl font-bold">Our Results in Numbers</p>
+      <div className="flex flex-wrap gap-1 justify-evenly md:w-[740px] lg:w-[1024px]">
         <div className="w-[102px]">
         <div className="text-red-600 text-[24px] font-bold border-b-2 border-red-600">10+</div>
 

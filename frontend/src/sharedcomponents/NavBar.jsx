@@ -9,14 +9,21 @@ function NavBar() {
   return (
     <div
       style={{ backgroundImage: `url(${header})` }}
-      className="w-full h-[100px] bg-cover bg-center flex justify-between items-center"
+      className="w-screen h-[100px] bg-cover bg-center flex justify-between items-center lg:justify-around"
     >
         <img src={logo} alt="metroLogo"
         className="px-3"
         ></img>
+        <Link className="hidden lg:block text-white hover:text-black">Home</Link>
+        <Link className="hidden lg:block text-white hover:text-black">Our Services</Link>
+        <Link className="hidden lg:block text-white hover:text-black">Tenants</Link>
+        <Link className="hidden lg:block text-white hover:text-black">News</Link>
+        <Link className="hidden lg:block text-white hover:text-black">About Us</Link>
+        <Link className="hidden lg:block text-white hover:text-black">Contact Us</Link>
         <div className="flex px-3 gap-3">
            <Link to="/saved"> <img src={saved} alt="saved"></img></Link> 
-            <img src={frame} alt="frame"></img>
+           <img src={frame} alt="frame" className="lg:hidden"></img>
+
         </div>
 
 
