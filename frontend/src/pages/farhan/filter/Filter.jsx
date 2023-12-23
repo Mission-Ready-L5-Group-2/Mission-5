@@ -4,12 +4,14 @@ import Button from "./Button";
 
 import { useState } from "react";
 import DropDown from "./DropDown";
+import CheckDropDown from "./CheckDropDown";
 
 
 
 
-function Filter({filterOpen, setFilterOpen}) {
+function Filter({filterOpen, setFilterOpen, properties}) {
 
+    //Toggle Dropdown menus
     const [openDropDown, setOpenDropDown] = useState(
         {
             location: false,
@@ -22,7 +24,6 @@ function Filter({filterOpen, setFilterOpen}) {
             propertyType: false,
         }
     )
-
 
 
     const handleButton = (name) => {
@@ -44,9 +45,61 @@ function Filter({filterOpen, setFilterOpen}) {
         setOpenDropDown(newOpenDropDown)
     }
 
-  
+   
+
+    //Get all cities from fetched data
+    const cities = properties.map((property) => property.address.city)
+    //Remove duplicates
+    const uniqueCities = [...new Set(cities)]
+
+    //Load data from loader into the dropdown options
+    const [selection, setSelection] = useState( {
+        location: "All Locations",
+        district: "All Districts",
+        suburb: ["All Suburbs"],
+        price1: "Any",
+        price2: "Any",
+        bedroom: "Any",
+        bathroom: "Any",
+        propertyType: "Any",
+        availableNow: false,
+        petsOk: false,
+    })  
 
 
+    //Get district basaed on selected city
+    const districts = properties.filter((property) => {
+        if (property.address.city === selection.location || selection.location === "All Locations") {
+            return property.address.district
+        }
+    })
+    const uniqueDistricts = [...new Set(districts.map((district) => district.address.district))]
+
+    //Get suburb based on selected district
+    const suburbs = properties.filter((property) => {
+        if (property.address.district === selection.district || selection.district === "All Districts") {
+            return property.address.suburb
+        }
+    })
+    const uniqueSuburbs = [...new Set(suburbs.map((suburb) => suburb.address.suburb))]
+
+    //Pass prices 
+    const prices = ["$0", "$100", "$200", "$300", "$400", "$500+"]
+
+    //handle case if price 1 is greater than price 2
+    if (selection.price1 > selection.price2) {
+        setSelection({...selection, price2: selection.price1, price1: selection.price2})
+    }
+
+    //Bedrooms and bathrooms dropdowns
+    const rooms = ["Any", "1", "2", "3", "4+"]
+
+
+    //handle property types dropdown
+    const propertyTypes = ["Any", "Apartment", "House", "Townhouse", "Unit"]
+
+   //Convert selected suburbs to array with , 
+    const selectedSuburbs = selection.suburb.join(", ")
 
 
 
@@ -65,51 +118,61 @@ function Filter({filterOpen, setFilterOpen}) {
             <p className="text-sm font-bold">Location</p>
             <div className="flex gap-2">
 
-            <Button value={"All New Zealand"} handleButton={handleButton} name={"location"}/>
+            <Button value={selection.location} handleButton={handleButton} name={"location"}
+        
+            />
             {
                 openDropDown.location ? (
                  <div className="bg-[#ffffff] absolute z-50 mt-9 w-[192px]">
-                     <DropDown />
+                     <DropDown value ={uniqueCities} selection={selection}
+                        setSelection={setSelection} stateKey="location"
+                        openDropDown={openDropDown}
+                     />
                 </div>
                     ) : ""
             }
 
-            <Button value={"All Districts"} handleButton={handleButton} name={"district"}/>
+            <Button value={selection.district} handleButton={handleButton} name={"district"}/>
             {
-                openDropDown.district ? (
+                openDropDown.district ?  (
                  <div className="bg-[#ffffff] absolute z-50 mt-9 w-[160px] ml-[200px]">
-                     <DropDown />
+                     <DropDown value={uniqueDistricts} selection={selection}
+                        setSelection={setSelection} stateKey="district"  openDropDown={openDropDown}/>
                 </div>
                     ) : ""
             }
            
             </div>
 
-            <Button value={"All Suburbs"} name={"suburb"} handleButton={handleButton}/>
+            <Button value={selectedSuburbs} name={"suburb"} handleButton={handleButton}/>
             {
                 openDropDown.suburb ? (
                  <div className="bg-[#ffffff] absolute z-50 mt-[121px] w-[357px]">
-                     <DropDown />
+                     <CheckDropDown value={uniqueSuburbs} stateKey="suburb" selection={selection}
+                        setSelection={setSelection} openDropDown={openDropDown}/>
                 </div>
                     ) : ""
             }
 
             <p className="text-sm font-bold">Price</p>
             <div className="flex gap-2">
-            <Button value={"Any "} name={"price1"} handleButton={handleButton}/>
+            <Button value={selection.price1} name={"price1"} handleButton={handleButton}/>
             {
                 openDropDown.price1 ? (
                  <div className="bg-[#ffffff] absolute z-50 mt-[36px] w-[168px]">
-                     <DropDown />
+                     <DropDown value={prices} stateKey="price1" selection={selection}
+                        setSelection={setSelection} openDropDown={openDropDown} />
                 </div>
                     ) : ""
             }
             <span> - </span>
-            <Button value={"Any "} name={"price2"} handleButton={handleButton}/>
+            <Button value={selection.price2} name={"price2"} handleButton={handleButton}/>
             {
                 openDropDown.price2 ? (
                  <div className="bg-[#ffffff] absolute z-50 mt-[36px] w-[168px] ml-[190px]">
-                     <DropDown />
+                     <DropDown value={prices} stateKey="price2" selection={selection}
+                        setSelection={setSelection} openDropDown={openDropDown}
+                     />
                 </div>
                     ) : ""
             }
@@ -118,22 +181,26 @@ function Filter({filterOpen, setFilterOpen}) {
             <div className="flex flex-grow gap-5">
             <div className="flex-grow">
             <p className="text-sm font-bold">Bedrooms</p>
-            <Button value={"Any "} name={"bedroom"} handleButton={handleButton}/>
+            <Button value={selection.bedroom} name={"bedroom"} handleButton={handleButton}/>
             {
                 openDropDown.bedroom ? (
                  <div className="bg-[#ffffff] absolute z-50 mt-[1px] w-[168px]">
-                     <DropDown />
+                     <DropDown value={rooms} stateKey="bedroom" selection={selection}
+                      setSelection={setSelection} openDropDown={openDropDown}
+                     />
                 </div>
                     ) : ""
             }
             </div>
             <div className="flex-grow">
             <p className="text-sm font-bold">Bathrooms</p>
-            <Button value={"Any "} name={"bathroom"} handleButton={handleButton}/>
+            <Button value={selection.bathroom} name={"bathroom"} handleButton={handleButton}/>
             {
                 openDropDown.bathroom ? (
                  <div className="bg-[#ffffff] absolute z-50 mt-[1px] w-[171px]">
-                     <DropDown />
+                     <DropDown value={rooms} stateKey="bathroom" selection={selection}
+                      setSelection={setSelection} openDropDown={openDropDown}
+                     />
                 </div>
                     ) : ""
             }
@@ -141,11 +208,13 @@ function Filter({filterOpen, setFilterOpen}) {
             </div>
 
            <p className="text-sm font-bold">Property Type</p>
-              <Button value={"Any "} name={"propertyType"} handleButton={handleButton}/>
+              <Button value={selection.propertyType} name={"propertyType"} handleButton={handleButton}/>
               {
                 openDropDown.propertyType ? (
                  <div className="bg-[#ffffff] absolute z-50 mt-[364px] w-[357px]">
-                     <DropDown />
+                     <DropDown value={propertyTypes} stateKey="propertyType" selection={selection}
+                      setSelection={setSelection} openDropDown={openDropDown}
+                     />
                 </div>
                     ) : ""
             }
@@ -154,13 +223,28 @@ function Filter({filterOpen, setFilterOpen}) {
             <div className=" rounded-md flex gap-4">
 
                 <div className="border border-black rounded-md w-[164px]">
-                <input type="checkbox" className="m-2"></input>
+                <input
+                    type="checkbox"
+                    className="m-2"
+                    value={selection.availableNow}
+                    onChange={() =>
+                    setSelection({ ...selection, availableNow: !selection.availableNow })
+                            }
+                />
+
                 <label className="m-2">Available Now</label>
                 </div>
               
 
                 <div className="border border-black rounded-md flex-grow">
-                <input type="checkbox" className="m-2"></input>
+                <input
+                    type="checkbox"
+                    className="m-2"
+                    value={selection.petsOk}
+                    onChange={() =>
+                    setSelection({ ...selection, petsOk: !selection.petsOk })
+                            }
+                />
                 <label className="m-2">Pets OK</label>
 
                 </div>

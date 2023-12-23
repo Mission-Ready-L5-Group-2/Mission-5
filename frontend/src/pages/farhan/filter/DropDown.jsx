@@ -1,16 +1,32 @@
 
 
-function DropDown() {
+function DropDown({value, selection, setSelection, stateKey,openDropDown}) {
+
+ const handleSelection = (item,stateKey) => {
+    setSelection({...selection, [stateKey]: item})
+    openDropDown[stateKey] = false
+  }
+
 
 
   return (
     <div className="bg-[#647488] rounded-lg">
 
         <div className="text-white p-1">
-        <p>1</p>
-        <p>2</p>
-        <p>3</p>
-        <p>4</p>
+
+          
+       {
+            value ? value.map((item, index) => (
+                <div key={index} cursor="pointer" onClick={() => handleSelection(item, stateKey)}
+                >
+                    
+                    <p >{item}</p>
+                    
+
+              
+                </div>
+            )) : "No Options Available"
+       }
 
         </div>
 

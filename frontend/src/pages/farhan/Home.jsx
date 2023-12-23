@@ -22,6 +22,8 @@ import { useState } from "react";
 import Results from "./Results";
 import StepCard from "./accordion/StepCard";
 import Filter from "./filter/Filter";
+import axios from "axios";
+import { useLoaderData } from "react-router-dom";
 
 function Home() {
   const [isOpen, setIsOpen] = useState({
@@ -115,6 +117,11 @@ function Home() {
   //Handle filter open/close
   const [filterOpen, setFilterOpen] = useState(false);
 
+  //use loader data
+  const properties = useLoaderData();
+
+
+
 
 
 
@@ -123,7 +130,7 @@ function Home() {
   return (
     <>
       {
-        filterOpen && <Filter filterOpen = {filterOpen} setFilterOpen={setFilterOpen} />
+        filterOpen && <Filter filterOpen = {filterOpen} setFilterOpen={setFilterOpen} properties ={properties} />
       }
     <div className="flex flex-col gap-5 flex-grow">
       <div className="flex border border-black rounded flex-none w-[375px] lg:w-[1024px] justify-between items-center py-1 mt-2 self-center">
@@ -258,3 +265,10 @@ function Home() {
 }
 
 export default Home;
+
+//loader function to fetch all properties
+export const propertiesLoader = async () => {
+  const response = await axios.get("http://localhost:8080/properties");
+  const data = await response.data;
+  return data;
+}
