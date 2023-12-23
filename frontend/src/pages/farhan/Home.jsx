@@ -21,6 +21,7 @@ import Accordion from "./accordion/Accordion";
 import { useState } from "react";
 import Results from "./Results";
 import StepCard from "./accordion/StepCard";
+import Filter from "./filter/Filter";
 
 function Home() {
   const [isOpen, setIsOpen] = useState({
@@ -111,7 +112,19 @@ function Home() {
     setIsOpen(updatedIsOpen);
   };
 
+  //Handle filter open/close
+  const [filterOpen, setFilterOpen] = useState(false);
+
+
+
+
+
+
   return (
+    <>
+      {
+        filterOpen && <Filter filterOpen = {filterOpen} setFilterOpen={setFilterOpen} />
+      }
     <div className="flex flex-col gap-5 flex-grow">
       <div className="flex border border-black rounded flex-none w-[375px] lg:w-[1024px] justify-between items-center py-1 mt-2 self-center">
         <img src={search} alt="search" className="pl-2" />
@@ -120,7 +133,7 @@ function Home() {
           placeholder="Search..."
           className="text-center flex-grow"
         />
-        <img src={filter} alt="filter" className="pr-2" />
+        <img src={filter} alt="filter" className="pr-2" onClick={() => setFilterOpen(!filterOpen)}/>
       </div>
 
       <p className="self-center font-bold md:text-2xl lg:text-[40px]">
@@ -238,7 +251,9 @@ function Home() {
           className="absolute bottom-0 right-0 z-0 w-[225px] md:w-[481px] lg:"
         />
       </div>
+   
     </div>
+    </>
   );
 }
 
