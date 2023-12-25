@@ -5,7 +5,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 //Import your routes here
-import testRoute from "./routes/testRoute.js";
+import propertyRouter from "./routes/properties.js";
+import searchRouter from "./routes/search.js";
 
 //Setup Server
 dotenv.config();
@@ -16,7 +17,8 @@ app.use(express.json());
 app.use(cors());    //specify later
 
 //Test Route
-app.use("/test", testRoute);
+app.use("/properties", propertyRouter);
+app.use("/search", searchRouter);
 
 
 //Create Port and Connect to MONGO

@@ -4,9 +4,9 @@
 import { Router } from "express";
 import { Property } from "../models/property.js";
 
-const testRoute = Router();
+const propertyRouter = Router();
 
-testRoute.get("/", async (req, res) => {
+propertyRouter.get("/", async (req, res) => {
     try {
         const properties = await Property.find();
         res.status(200).json(properties);
@@ -17,4 +17,4 @@ testRoute.get("/", async (req, res) => {
 })
 
 
-export default testRoute;
+export default propertyRouter;
