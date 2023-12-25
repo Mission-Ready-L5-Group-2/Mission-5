@@ -6,6 +6,10 @@ import { useState } from "react";
 import DropDown from "./DropDown";
 import CheckDropDown from "./CheckDropDown";
 
+import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
+
+
 
 
 
@@ -24,7 +28,6 @@ function Filter({filterOpen, setFilterOpen, properties}) {
             propertyType: false,
         }
     )
-
 
     const handleButton = (name) => {
 
@@ -45,27 +48,25 @@ function Filter({filterOpen, setFilterOpen, properties}) {
         setOpenDropDown(newOpenDropDown)
     }
 
-   
-
     //Get all cities from fetched data
     const cities = properties.map((property) => property.address.city)
     //Remove duplicates
     const uniqueCities = [...new Set(cities)]
+    uniqueCities.unshift("All Locations")
 
     //Load data from loader into the dropdown options
     const [selection, setSelection] = useState( {
-        location: "All Locations",
-        district: "All Districts",
-        suburb: ["All Suburbs"],
+        location: uniqueCities[0],
+        district: ["All Districts"],
+        suburb: [],
         price1: "Any",
         price2: "Any",
         bedroom: "Any",
         bathroom: "Any",
         propertyType: "Any",
-        availableNow: false,
+        availableNow: true,
         petsOk: false,
     })  
-
 
     //Get district basaed on selected city
     const districts = properties.filter((property) => {
@@ -82,6 +83,7 @@ function Filter({filterOpen, setFilterOpen, properties}) {
         }
     })
     const uniqueSuburbs = [...new Set(suburbs.map((suburb) => suburb.address.suburb))]
+    uniqueSuburbs.unshift("All Suburbs")
 
     //Pass prices 
     const prices = ["$0", "$100", "$200", "$300", "$400", "$500+"]
@@ -101,6 +103,65 @@ function Filter({filterOpen, setFilterOpen, properties}) {
    //Convert selected suburbs to array with , 
     const selectedSuburbs = selection.suburb.join(", ")
 
+    //Handle navigate
+    const navigate = useNavigate()
+
+
+
+    //Handle search button 
+    
+    const location = useLocation();
+    const [propertiesData, setPropertiesData] = useState([]) //This is the data returned from the backend and passed to the properties page
+   
+    
+     const handlePropertySearch = async () => {
+        try {
+            // Set loading state while waiting for the response
+           
+          
+            // Submit data to the backend
+            const response = await axios.post("http://localhost:8080/search", selection);
+            console.log(response.data)
+            setPropertiesData(response.data);
+        
+
+            // If accessing the search page from the homepage.
+            if (location.pathname === "/" && selection.location !== "All Locations") {
+              // Replace spaces with hyphens in the location value
+              const formattedLocation = selection.location.replace(/\s+/g, '-');
+
+             navigate(`/search/${formattedLocation}`, { state:  response.data  });
+
+            } else if (location.pathname === "/") {
+                navigate(`/search/`, { state:  response.data  });
+            }
+          
+            // Reset loading state after successful response
+          } catch (error) {
+            // Reset loading state in case of an error
+           
+          
+            // Check for specific error cases and provide detailed error messages
+            if (error.response) {
+              // The request was made and the server responded with a status code
+              console.error("Server responded with an error:", error.response.data);
+            } else if (error.request) {
+              // The request was made but no response was received
+              console.error("No response received from the server:", error.request);
+            } else {
+              // Something happened in setting up the request that triggered an error
+              console.error("An unexpected error occurred:", error.message);
+            }
+          }
+          
+
+          
+
+    
+
+
+        
+    }
 
 
   return (
@@ -228,7 +289,7 @@ function Filter({filterOpen, setFilterOpen, properties}) {
                     className="m-2"
                     value={selection.availableNow}
                     onChange={() =>
-                    setSelection({ ...selection, availableNow: !selection.availableNow })
+                    setSelection({ ...selection, availableNow: selection.availableNow })
                             }
                 />
 
@@ -251,7 +312,9 @@ function Filter({filterOpen, setFilterOpen, properties}) {
         
             </div>
 
-            <div className="w-[223px] rounded-[24px] bg-[#0acc29] flex gap-2 justify-center py-2 self-center mt-2">
+            <div className="w-[223px] rounded-[24px] bg-[#0acc29] flex gap-2 justify-center py-2 self-center mt-2"
+                
+                onClick={handlePropertySearch}>
                 <img src={search} alt="search"></img>
                 <p className="text-white text-xl">Search Property</p>
             </div>

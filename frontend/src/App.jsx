@@ -9,9 +9,9 @@ import {
 //Page Imports
 import Home, { propertiesLoader } from './pages/farhan/Home'
 import RootLayout from './sharedcomponents/RootLayout';
+import Properties from './pages/farhan/Properties';
 
 
-//Context Imports
 
 
 
@@ -27,6 +27,12 @@ const router = createBrowserRouter(
       element={<Home />} 
       loader={propertiesLoader}
       />
+      <Route 
+      path="search" 
+      element={ <Properties/>}/>
+      <Route path='search/:city' element={<Properties/>} />
+        
+      
     
     </Route>
   )

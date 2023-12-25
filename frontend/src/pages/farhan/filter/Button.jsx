@@ -10,7 +10,7 @@ function Button({value, handleButton,name}) {
 
   return (
     <div className="flex flex-grow border border-black rounded-md relative" onClick={() => handleButton(name)}>
-        <button className=" p-1 flex gap-4 flex-grow border-r-0"> {value}</button>
+        <button className=" p-1 flex gap-4 flex-grow border-r-0"> {value ? value : "All Suburbs"}</button>
         <img src={upArrow} className="self-center mr-2 flex"></img>
     </div>
     

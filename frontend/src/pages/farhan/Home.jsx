@@ -120,6 +120,9 @@ function Home() {
   //use loader data
   const properties = useLoaderData();
 
+  //Search bar functionality
+ 
+
 
 
 
@@ -132,15 +135,14 @@ function Home() {
       {
         filterOpen && <Filter filterOpen = {filterOpen} setFilterOpen={setFilterOpen} properties ={properties} />
       }
-    <div className="flex flex-col gap-5 flex-grow">
-      <div className="flex border border-black rounded flex-none w-[375px] lg:w-[1024px] justify-between items-center py-1 mt-2 self-center">
+    <div className="flex flex-col gap-5 flex-grow" >
+      <div className="flex border border-black rounded flex-none w-[375px] lg:w-[1024px] justify-between items-center py-1 mt-2 self-center"
+      onClick={() => setFilterOpen(!filterOpen)}>
         <img src={search} alt="search" className="pl-2" />
-        <input
-          type="text"
-          placeholder="Search..."
-          className="text-center flex-grow"
-        />
-        <img src={filter} alt="filter" className="pr-2" onClick={() => setFilterOpen(!filterOpen)}/>
+        <div className="text-center flex-grow">
+          Search ...
+        </div>
+        <img src={filter} alt="filter" className="pr-2"/>
       </div>
 
       <p className="self-center font-bold md:text-2xl lg:text-[40px]">
