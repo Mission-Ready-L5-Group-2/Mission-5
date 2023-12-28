@@ -13,7 +13,10 @@ services:
       - backend
     networks:
       - mern-network
-  
+    volumes:
+      - ./frontend:/app/frontend
+      - /app/frontend/node_modules
+
   backend:
     build: ./backend
     container_name: node-api
@@ -26,7 +29,10 @@ services:
       - database
     networks:
       - mern-network
-  
+    volumes:
+      - ./backend:/app/backend
+      - /app/backend/node_modules
+
   database:
     image: mongo
     container_name: mongo-db

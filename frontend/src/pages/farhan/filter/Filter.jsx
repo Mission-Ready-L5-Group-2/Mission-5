@@ -58,7 +58,7 @@ function Filter({filterOpen, setFilterOpen, properties}) {
     const [selection, setSelection] = useState( {
         location: uniqueCities[0],
         district: ["All Districts"],
-        suburb: [],
+        suburb: ["All Suburbs"],
         price1: "Any",
         price2: "Any",
         bedroom: "Any",

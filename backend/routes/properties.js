@@ -1,5 +1,3 @@
-//This route is a test to explain how express router works and sending a dummy message from our mongoDB database to the frontend.
-//It is also a check on the docker container to see if it is working properly.
 
 import { Router } from "express";
 import { Property } from "../models/property.js";

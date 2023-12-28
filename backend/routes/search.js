@@ -7,6 +7,7 @@ const searchRouter = Router();
 searchRouter.post("/", async (req, res) => {
 
   const search = req.body;
+  console.log(search);
 
 // Handle "Any" case for bedroom
 const bedroomQuery = {};
@@ -84,9 +85,10 @@ if (!isNaN(search.price1) && !isNaN(search.price2)) {
   }
   
   const districtQuery = {};
-  if (search.district !== "All Districts") {
-    districtQuery["address.district"] = search.district;
+  if (search.district && search.district.length > 0 && search.district[0] !== "All Districts") {
+    districtQuery["address.district"] = { $in: search.district };
   }
+  
 
   const suburbQuery = search.suburb[0] === "All Suburbs"
   ? {} // Empty query to match all suburbs
@@ -94,7 +96,7 @@ if (!isNaN(search.price1) && !isNaN(search.price2)) {
 
 
   const propertyTypeQuery = {};
-    if (search.propertyType !== "All") {
+    if (search.propertyType !== "Any") {
         propertyTypeQuery.propertyType = search.propertyType;
     }
   
@@ -110,10 +112,13 @@ if (!isNaN(search.price1) && !isNaN(search.price2)) {
         suburbQuery,      
     ],
   };
-  
+
+  console.log(query);
+
 
   try {
     const properties = await Property.find(query);
+ 
     res.status(200).json(properties);
   } catch (err) {
     res.status(500).json({ message: err.message });
